@@ -184,6 +184,40 @@ fun FormMahasiswa(
             }
         }
 
+        OutlinedTextField(
+            modifier = Modifier.fillMaxWidth(),
+            value = mahasiswaEvent.alamat,
+            onValueChange = {
+                onValueChange(mahasiswaEvent.copy(alamat = it))
+            },
+            label = { Text("Alamat") },
+            isError = errorState.nim != null,
+            placeholder = { Text("Masukkan Alamat") },
 
+        )
+        Text(
+            text = errorState.alamat ?: "",
+            color = Color.Red
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Kelas")
+        Row {
+            kelas.forEach {
+                kelas ->
+                Row (
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start
+                ){
+                    RadioButton(
+                        selected = mahasiswaEvent.kelas == kelas,
+                        onClick = {
+                            onValueChange(mahasiswaEvent.copy(kelas = kelas))
+                        },
+                    )
+                    Text(text = kelas)
+                }
+            }
+        }
     }
 }
