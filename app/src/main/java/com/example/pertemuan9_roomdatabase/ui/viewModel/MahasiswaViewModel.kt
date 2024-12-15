@@ -2,14 +2,19 @@ package com.example.pertemuan9_roomdatabase.ui.viewModel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pertemuan9_roomdatabase.data.entity.Mahasiswa
 import com.example.pertemuan9_roomdatabase.repositori.RepositoryMhs
 import kotlinx.coroutines.launch
+import java.text.Normalizer.Form
+
+// Event adalah sebuah aksi (sesuatu yang dilakukan)
+// State adalah hasil dari event (aksi)
 
 data class MhsUIState(
-    val MahasiswaEvent : MahasiswaEvent = MahasiswaEvent(),
+    val mahasiswaEvent: MahasiswaEvent = MahasiswaEvent(),
     val isEntryValid: FormErrorState = FormErrorState(),
     val snackBarMessage: String? = null,
 )
@@ -28,17 +33,17 @@ data class FormErrorState(
     }
 }
 
-//data class variable yang menyimpan data input form
+// data class variabel yang menyimpan data input form
 data class MahasiswaEvent(
-    val nim: String? = null,
-    val nama: String? = null,
-    val jenisKelamin: String? = null,
-    val alamat: String? = null,
-    val kelas: String? = null,
-    val angkatan: String? = null,
+    val nim: String = "",
+    val nama: String = "",
+    val jenisKelamin: String = "",
+    val alamat: String = "",
+    val kelas: String = "",
+    val angkatan: String = ""
 )
 
-//menyimpan input form ke dalam activity
+// menyimpan input form ke dalam activity
 fun MahasiswaEvent.toMahasiswaEntity(): Mahasiswa = Mahasiswa(
     nim = nim,
     nama = nama,
