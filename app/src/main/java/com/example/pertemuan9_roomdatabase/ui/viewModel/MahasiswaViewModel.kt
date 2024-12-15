@@ -22,3 +22,12 @@ data class FormErrorState(
     }
 }
 
+//data class variable yang menyimpan data input form
+data class MahasiswaEvent(
+    val nim: String? = null,
+    val nama: String? = null,
+    val jenisKelamin: String? = null,
+    val alamat: String? = null,
+    val kelas: String? = null,
+    val angkatan: String? = null,
+)
