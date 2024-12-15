@@ -31,3 +31,13 @@ data class MahasiswaEvent(
     val kelas: String? = null,
     val angkatan: String? = null,
 )
+
+//menyimpan input form ke dalam activity
+fun MahasiswaEvent.toMahasiswaEntity(): Mahasiswa = Mahasiswa(
+    nim = nim,
+    nama = nama,
+    jenisKelamin = jenisKelamin,
+    alamat = alamat,
+    kelas = kelas,
+    angkatan = angkatan
+)
