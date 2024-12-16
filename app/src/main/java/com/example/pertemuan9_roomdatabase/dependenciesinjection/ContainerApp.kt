@@ -2,8 +2,8 @@ package com.example.pertemuan9_roomdatabase.dependenciesinjection
 
 import android.content.Context
 import com.example.pertemuan9_roomdatabase.data.database.KrsDatabase
-import com.example.pertemuan9_roomdatabase.repositori.LocalRepositoryMhs
-import com.example.pertemuan9_roomdatabase.repositori.RepositoryMhs
+import com.example.pertemuan9_roomdatabase.repository.LocalRepositoryMhs
+import com.example.pertemuan9_roomdatabase.repository.RepositoryMhs
 
 //Step 6
 interface InterfaceContainerApp {

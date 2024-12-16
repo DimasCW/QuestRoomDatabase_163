@@ -6,14 +6,13 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pertemuan9_roomdatabase.data.entity.Mahasiswa
-import com.example.pertemuan9_roomdatabase.repositori.RepositoryMhs
+import com.example.pertemuan9_roomdatabase.repository.RepositoryMhs
 import kotlinx.coroutines.launch
-import java.text.Normalizer.Form
 
 // Event adalah sebuah aksi (sesuatu yang dilakukan)
 // State adalah hasil dari event (aksi)
 
-data class MhsUIState(
+data class MhsUiState(
     val mahasiswaEvent: MahasiswaEvent = MahasiswaEvent(),
     val isEntryValid: FormErrorState = FormErrorState(),
     val snackBarMessage: String? = null,
@@ -54,7 +53,7 @@ fun MahasiswaEvent.toMahasiswaEntity(): Mahasiswa = Mahasiswa(
 )
 
 class MahasiswaViewModel (private val  repositoryMhs: RepositoryMhs): ViewModel(){
-    var uiState by mutableStateOf(MhsUIState())
+    var uiState by mutableStateOf(MhsUiState())
 
     // Memperbarui state berdasarkan input pengguna
     fun updateState(mahasiswaEvent: MahasiswaEvent){
