@@ -16,6 +16,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pertemuan9_roomdatabase.ui.costumwidget.CstTopAppBar
 import com.example.pertemuan9_roomdatabase.ui.navigation.AlamatNavigasi
 import com.example.pertemuan9_roomdatabase.ui.viewModel.PenyediaViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.UpdateMhsViewModel
@@ -56,10 +57,11 @@ fun UpdateMhsView(
         modifier = Modifier,
         snackbarHost = { SnackbarHost(hostState =  snackbarHostState) }, //tempatkan sanckbar di scaffoold
         topBar = {
-            TopAppBar(
+            CstTopAppBar(
                 judul = "Edit Mahasiswa",
                 showBackButton = true,
                 onBack = onBack,
+                modifier = modifier
             )
         }
         ){padding ->

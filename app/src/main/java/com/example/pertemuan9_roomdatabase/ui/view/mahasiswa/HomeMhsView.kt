@@ -39,15 +39,15 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertemuan9_roomdatabase.data.entity.Mahasiswa
 import com.example.pertemuan9_roomdatabase.repository.RepositoryMhs
+import com.example.pertemuan9_roomdatabase.ui.costumwidget.CstTopAppBar
 import com.example.pertemuan9_roomdatabase.ui.viewModel.HomeMhsViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.HomeUiState
 import com.example.pertemuan9_roomdatabase.ui.viewModel.PenyediaViewModel
-import kotlinx.coroutines.internal.ExceptionSuccessfullyProcessed.message
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HoeMhsView(
+fun HomeMhsView(
     viewModel: HomeMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
     onAddMhs: () -> Unit = { },
     onDetailClick: (String) -> Unit = { },
@@ -55,12 +55,10 @@ fun HoeMhsView(
 ) {
     Scaffold (
         topBar = {
-            TopAppBar(
-                judul = "Daftar Mahasiswa",
+            CstTopAppBar(judul = "Daftar Mahasiswa",
                 showBackButton = false,
                 onBack = { },
-                modifier = modifier
-            )
+                modifier = modifier)
         },
         floatingActionButton = {
             FloatingActionButton(
@@ -109,10 +107,11 @@ fun BodyHomeMhsView(
 
         homeUiState.isError -> {
             //Menampilkan pesan error
-            LaunchedEffect (homeUiState.errorMessage){
-                homeUiState.errorMessage?.let(message ->
-                coroutineScope.launch {
-                    snackbarHostState.showSnackbar(message)
+            LaunchedEffect(homeUiState.errorMessage) {
+                homeUiState.errorMessage?.let { message ->
+                    coroutineScope.launch {
+                        snackbarHostState.showSnackbar(message)
+                    }
                 }
             }
         }
@@ -133,7 +132,7 @@ fun BodyHomeMhsView(
         else -> {
             //Menampilkan daftar mahasiswa
             ListMahasiswa(
-                listMhs = HomeUiState.listMhs,
+                listMhs = homeUiState.listMhs,
                 onClick = {
                     onClick(it)
                     println(

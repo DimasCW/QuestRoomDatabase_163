@@ -102,7 +102,8 @@ fun InsertMhsView(
             CstTopAppBar(
                 onBack = onBack,
                 showBackButton = true,
-                judul = "Tambah Mahasiswa"
+                judul = "Tambah Mahasiswa",
+                modifier = modifier
             )
             // isi body
             InsertBodyMhs(

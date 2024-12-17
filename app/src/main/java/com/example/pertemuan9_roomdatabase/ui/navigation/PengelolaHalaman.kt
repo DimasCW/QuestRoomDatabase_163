@@ -12,6 +12,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.pertemuan9_roomdatabase.ui.view.mahasiswa.DestinasiInsert
+import com.example.pertemuan9_roomdatabase.ui.view.mahasiswa.DetailMhsView
+import com.example.pertemuan9_roomdatabase.ui.view.mahasiswa.HomeMhsView
 import com.example.pertemuan9_roomdatabase.ui.view.mahasiswa.InsertMhsView
 import com.example.pertemuan9_roomdatabase.ui.view.mahasiswa.UpdateMhsView
 

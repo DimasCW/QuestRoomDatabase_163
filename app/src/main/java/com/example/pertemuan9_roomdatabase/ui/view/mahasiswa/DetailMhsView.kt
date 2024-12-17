@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.view.KeyEventDispatcher.Component
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.pertemuan9_roomdatabase.data.entity.Mahasiswa
+import com.example.pertemuan9_roomdatabase.ui.costumwidget.CstTopAppBar
 import com.example.pertemuan9_roomdatabase.ui.viewModel.DetailMhsViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.DetailUiState
 import com.example.pertemuan9_roomdatabase.ui.viewModel.HomeMhsViewModel
@@ -45,7 +46,7 @@ import com.example.pertemuan9_roomdatabase.ui.viewModel.PenyediaViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.toMahasiswaEntity
 
 @Composable
-fun DetailMhsViewModel(
+fun DetailMhsView(
     modifier: Modifier = Modifier,
     viewModel: HomeMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
     onBack: () -> Unit = { },
@@ -54,7 +55,7 @@ fun DetailMhsViewModel(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
+            CstTopAppBar(
                 judul = "Detail Mahasiswa",
                 showBackButton = true,
                 onBack = onBack,
@@ -69,10 +70,9 @@ fun DetailMhsViewModel(
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(16.dp)
             ) {
-                Icon(
-                    ImageVector = Icons.Default.Edit,
-                    contentDescription = "Edit Mahasiswa",
-                )
+                Icon(ImageVector = Icons.Default.Edit,
+                   contentDescription = "Edit Mahasiswa"
+                    )
             }
         }
     ) { innerPadding ->
@@ -172,15 +172,15 @@ fun ItemDetailMhs(
             ComponentDetailMhs(judul = "NIM", isinya = mahasiswa.nim)
             Spacer(modifier = Modifier.padding(4.dp))
             ComponentDetailMhs(judul = "Nama", isinya = mahasiswa.nama)
-            Spcaer(modifier = Modifier.padding(4.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             ComponentDetailMhs(judul = "Alamat", isinya = mahasiswa.alamat)
-            Spcaer(modifier = Modifier.padding(4.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             ComponentDetailMhs(judul = "jenis Kelamin", isinya = mahasiswa.jenisKelamin)
-            Spcaer(modifier = Modifier.padding(4.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             ComponentDetailMhs(judul = "Kelas", isinya = mahasiswa.kelas)
-            Spcaer(modifier = Modifier.padding(4.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
             ComponentDetailMhs(judul = "Angkatan", isinya = mahasiswa.angkatan)
-            Spcaer(modifier = Modifier.padding(4.dp))
+            Spacer(modifier = Modifier.padding(4.dp))
         }
     }
 
@@ -211,7 +211,7 @@ fun ComponentDetailMhs (
 
 @Composable
 private fun DeleteConfirmationDialog(
-    onDeleteConfirm: () -> Unit, onDeleteClick: () -> Unit, modifier: Modifier = Modifier
+    onDeleteConfirm: () -> Unit, onDeleteCancel: () -> Unit, modifier: Modifier = Modifier
 ){
     AlertDialog(
         onDismissRequest ={/* Do Nothing*/},

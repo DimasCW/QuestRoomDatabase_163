@@ -19,7 +19,8 @@ import androidx.compose.ui.unit.sp
 fun CstTopAppBar(
     onBack: () -> Unit,
     showBackButton: Boolean = true,
-    judul: String
+    judul: String,
+    modifier: Modifier
 )
 {
     Box(modifier = Modifier
