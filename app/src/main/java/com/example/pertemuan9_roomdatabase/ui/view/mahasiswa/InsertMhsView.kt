@@ -33,7 +33,7 @@ import com.example.pertemuan9_roomdatabase.ui.navigation.AlamatNavigasi
 import com.example.pertemuan9_roomdatabase.ui.viewModel.FormErrorState
 import com.example.pertemuan9_roomdatabase.ui.viewModel.MahasiswaEvent
 import com.example.pertemuan9_roomdatabase.ui.viewModel.MahasiswaViewModel
-import com.example.pertemuan9_roomdatabase.ui.viewModel.MhsUIState
+import com.example.pertemuan9_roomdatabase.ui.viewModel.MhsUiState
 import com.example.pertemuan9_roomdatabase.ui.viewModel.PenyediaViewModel
 import kotlinx.coroutines.launch
 
@@ -41,7 +41,7 @@ import kotlinx.coroutines.launch
 fun InsertBodyMhs(
     modifier: Modifier = Modifier,
     onValueChange: (MahasiswaEvent) -> Unit,
-    uiState: MhsUIState,
+    uiState: MhsUiState,
     onClick: () -> Unit
 ){
     Column(
