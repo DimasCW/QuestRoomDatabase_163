@@ -172,7 +172,7 @@ fun ListMahasiswa(
 fun CardMhs(
     mhs: Mahasiswa,
     modifier: Modifier = Modifier,
-    onClick: (String) -> Unit = {}
+    onClick: () -> Unit = {}
 ){
     Card (
         onClick = onClick,

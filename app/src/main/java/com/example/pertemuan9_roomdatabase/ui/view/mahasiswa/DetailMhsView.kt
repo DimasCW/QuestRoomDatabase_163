@@ -23,6 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -45,10 +46,11 @@ import com.example.pertemuan9_roomdatabase.ui.viewModel.HomeMhsViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.PenyediaViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.toMahasiswaEntity
 
+
 @Composable
 fun DetailMhsView(
     modifier: Modifier = Modifier,
-    viewModel: HomeMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
+    viewModel: DetailMhsViewModel = viewModel(factory = PenyediaViewModel.Factory),
     onBack: () -> Unit = { },
     onEditClick: (String) -> Unit = {},
     onDeleteClick: () -> Unit = {}
@@ -70,7 +72,8 @@ fun DetailMhsView(
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(16.dp)
             ) {
-                Icon(ImageVector = Icons.Default.Edit,
+                Icon(
+                    imageVector = Icons.Default.Edit,
                    contentDescription = "Edit Mahasiswa"
                     )
             }
