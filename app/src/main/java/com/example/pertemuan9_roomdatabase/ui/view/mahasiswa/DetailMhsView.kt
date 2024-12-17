@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -28,7 +30,9 @@ import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+import androidx.core.view.KeyEventDispatcher.Component
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.pertemuan9_roomdatabase.data.entity.Mahasiswa
 import com.example.pertemuan9_roomdatabase.ui.viewModel.DetailMhsViewModel
 import com.example.pertemuan9_roomdatabase.ui.viewModel.DetailUiState
 import com.example.pertemuan9_roomdatabase.ui.viewModel.HomeMhsViewModel
@@ -141,6 +145,38 @@ fun BodyDetailMhs(
             }
         }
 
+    }
+
+}
+
+@Composable
+fun ItemDetailMhs(
+    modifier: Modifier = Modifier,
+    mahasiswa: Mahasiswa
+){
+    Card (
+        modifier = modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        )
+    ){
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            ComponentDetailMhs(judul = "NIM", isinya = mahasiswa.nim)
+            Spacer(modifier = Modifier.padding(4.dp))
+            ComponentDetailMhs(judul = "Nama", isinya = mahasiswa.nama)
+            Spcaer(modifier = Modifier.padding(4.dp))
+            ComponentDetailMhs(judul = "Alamat", isinya = mahasiswa.alamat)
+            Spcaer(modifier = Modifier.padding(4.dp))
+            ComponentDetailMhs(judul = "jenis Kelamin", isinya = mahasiswa.jenisKelamin)
+            Spcaer(modifier = Modifier.padding(4.dp))
+            ComponentDetailMhs(judul = "Kelas", isinya = mahasiswa.kelas)
+            Spcaer(modifier = Modifier.padding(4.dp))
+            ComponentDetailMhs(judul = "Angkatan", isinya = mahasiswa.angkatan)
+            Spcaer(modifier = Modifier.padding(4.dp))
+        }
     }
 
 }
